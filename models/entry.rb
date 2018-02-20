@@ -7,4 +7,9 @@ class Entry
         @phone_number = phone_number
         @email = email
     end
+    
+    # #7 create string expected from test as in #5
+    def to_s
+        "Name: #{name}\nPhone Number: #{phone_number}\nEmail: #{email}"
+    end
 end
