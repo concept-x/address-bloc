@@ -59,11 +59,11 @@ class MenuController
             puts entry.to_s
         # #15 display entry_submenu for each entry
             entry_submenu(entry)
-        end
+        end #end "each" loop
         
         system "clear"
         puts "End of entries"
-    end
+    end #end view_all_entries
     
     def create_entry
         # #11 clear screen before displaying 'create entry' prompts
@@ -82,13 +82,14 @@ class MenuController
         
         system "clear"
         puts "New entry created" 
-    end
+    end #end create_entry
     
     def search_entries
-    end
+    end #end search_entries
      
     def read_csv
-end #I get a syntax error (unexpected end-of-input) when I don't put the extra "end" in...???
+    end #end read_csv
+    #I get a syntax error (unexpected end-of-input) when I don't put the extra "end" in...???
     
     #this may need to go inside the extra "end" above
     def entry_submenu(entry)
@@ -115,6 +116,6 @@ end #I get a syntax error (unexpected end-of-input) when I don't put the extra "
                 system "clear"
                 puts "#{selection} is not a valid input"
                 entry_submenu(entry)
-        end # end entry_submenu
-    end #?????? what are we ending here????????
+            end # end case
+    end #entry_submenu
 end # end class
