@@ -8,6 +8,7 @@ class MenuController
         @address_book = AddressBook.new
     end
     
+    #*************for assignment 5************
     def main_menu 
         # #2 display main menu options in command line
         puts "Main Menu - #{address_book.entries.count} entries"
@@ -16,6 +17,7 @@ class MenuController
         puts "3 - Search for an entry"
         puts "4 - Import entries from a CSV"
         puts "5 - Exit"
+        puts "6 - View Entry Number n"
         print "Enter your selection: "
         
         # #3 grab user input with 'gets'
@@ -40,6 +42,10 @@ class MenuController
                 read_csv
                 main_menu
             when 5
+                system "clear"
+                view_entry_number
+                main_menu
+            when 6
                 puts "Good-bye!"
             # #8 terminate program w/o error (0)
                 exit(0)
@@ -50,6 +56,7 @@ class MenuController
                 main_menu
         end #end case
     end #end main_menu
+ #*************for assignment 5************
     
     # #10 stub the rest of the methods called in main_menu
     def view_all_entries
@@ -89,9 +96,25 @@ class MenuController
      
     def read_csv
     end #end read_csv
-    #I get a syntax error (unexpected end-of-input) when I don't put the extra "end" in...???
     
-    #this may need to go inside the extra "end" above
+     #*************for assignment 5************
+    def view_entry_number
+        system "clear"
+        print "Show me entry number "
+        selection = gets.chomp.to_i
+        
+        # if selection is a number we have in address_book...
+        if selection <= @address_book.entries.count 
+            puts @address_book.entries[selection]#...display that entry
+        else
+            puts "We don't have #{selection} entries! Try again."
+            view_entry_number #reprompt for a new entry #
+        end #end if
+    end #end view_entry_number
+        
+    # end *********extra??*******
+     #*************for assignment 5************
+    
     def entry_submenu(entry)
         # #16 display submenu options
         puts "n - next entry"
