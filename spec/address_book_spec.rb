@@ -97,9 +97,45 @@ RSpec.describe AddressBook do
        check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
      end #end 5th entry check
     
+##Assignment 6: test entries_2.csv
+    # Test that AddressBook's .import_from_csv() method is working correctly
+    describe "#import_from_csv" do
+        it "imports the correct number of entries" do
+            # #3 call import_from_csv method on book obj, passing "entries.csv" parameter.
+            book.import_from_csv("entries_2.csv")
+            # #3 book_size var = array
+            book_size = book.entries.size
+            
+            # Check size of entries in AddressBook
+            expect(book_size).to eq 3 #****why isn't this in parentheses like the others?*******
+        end #end "imports correct # of entries"
+    end #end #import from csv    
+
+    # #4 access 1st entry in AddressBook array
+    it "imports the 1st entry" do
+        book.import_from_csv("entries_2.csv")
+        #Check the first entry
+        entry_one = book.entries[0]
+        
+        # #5 three "expects" to verify entry info
+        check_entry(entry_one, "Emilie Elliott", "555-555-4854", "emilie@blocmail.com")
+    end #end "imports first entry"
+
+     it "imports the 2nd entry" do
+       book.import_from_csv("entries_2.csv")
+       # Check the second entry
+       entry_two = book.entries[1]
+       check_entry(entry_two, "Teddy Elliott", "555-555-5415", "teddy@derpmail.com")    
+     end
+ 
+     it "imports the 3rd entry" do
+       book.import_from_csv("entries_2.csv")
+       # Check the third entry
+       entry_three = book.entries[2]
+       check_entry(entry_three, "Veruca Elliott", "555-555-3660", "imacat@idgaf.com")
+     end #end 3rd entry check
+    
 end #end RSpec file
-
-
 
 
 
