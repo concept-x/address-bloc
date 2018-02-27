@@ -44,11 +44,10 @@ RSpec.describe AddressBook do
     describe "#remove_entry" do
         it "removes only one entry from the address book" do
             book = AddressBook.new
-            book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')#add because you need >= 1 entry
+            book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+            book.add_entry('Mickey Mouse', '010.555.1234', 'mickey@disney.com')#add because you need >= 1 entry
             book.remove_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
-                        
-            #evaluate entries.size before and after removal to ensure only one entry was deleted? Yes, but unnecessary in this case due to line 51
-            expect(book.entries.size).to eq(0)#since we only put in one entry, after we remove one, the total should be zero.
+            expect(book.entries.size).to eq(1)#since we only put in one entry, after we remove one, the total should be zero.
         end
     end
 end

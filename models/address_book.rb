@@ -26,10 +26,10 @@ end
 
 #assignment: remove_entry method
     def remove_entry(name, phone_number, email)
-        index = 0 #var assignment, as in add_entry
+        #index = 0 #var assignment, as in add_entry
         #iterate over entries to find match; use index to remove. 
-        entries.each do |entry|
-            if name == entry.name #if name to delete == entry.name
+        entries.each_with_index do |entry, index|
+            if name == entry.name && phone_number == entry.phone_number && email == entry.email #if name to delete == entry.name
                 entries.delete_at(index) #index var defined at line 29
             end
             index+=1 
