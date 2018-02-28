@@ -34,5 +34,39 @@ def add_entry(name, phone_number, email)
             row_hash = row.to_hash
             add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
         end #end csv.each loop
-    end
-end
+    end # end import_from_csv
+ 
+
+    #Search AddressBook for a specific entry by name
+    def binary_search(name)
+=begin
+        # #1 save array index first item as 'lower' and last as 'upper'
+        lower = 0
+        upper = entries.length -1
+        
+        # #2 loop while lower index < higher index
+        while lower <= upper
+            # #3 establish a middle spot and name as mid_name
+            mid = (lower + upper)/2
+            mid_name = entries[mid].name
+            
+            # #4 Compare search name with middle index (mid_name)
+            if name == mid_name #if that's it, return it
+                return entries[mid]
+            elsif name < mid_name #if it's before mid_name...
+                upper = mid -1 #...set upper to mid-1
+            elsif name > mid_name #if it's after mid_name...
+                lower = mid +1 #...set lower to mid +1
+            end #end if
+        end #end while ***half the list continually until we find what we're looking for.***
+        
+        # #5 **if no match is found, return 'nil'
+        return nil
+=end
+    end #end binary_search method
+
+    
+end# ***************end address_book file************
+
+
+
