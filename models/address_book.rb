@@ -39,10 +39,9 @@ def add_entry(name, phone_number, email)
 
     #Search AddressBook for a specific entry by name
     def binary_search(name)
-=begin
         # #1 save array index first item as 'lower' and last as 'upper'
         lower = 0
-        upper = entries.length -1
+        upper = entries.length - 1
         
         # #2 loop while lower index < higher index
         while lower <= upper
@@ -58,13 +57,13 @@ def add_entry(name, phone_number, email)
             elsif name > mid_name #if it's after mid_name...
                 lower = mid +1 #...set lower to mid +1
             end #end if
-        end #end while ***half the list continually until we find what we're looking for.***
+        end #end 'while' loop
+        #***half the list continually until we find what we're looking for***
         
         # #5 **if no match is found, return 'nil'
         return nil
-=end
-    end #end binary_search method
 
+    end #end binary_search method
     
 end# ***************end address_book file************
 
