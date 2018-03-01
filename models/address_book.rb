@@ -24,6 +24,10 @@ def add_entry(name, phone_number, email)
     entries.insert(index, Entry.new(name, phone_number, email))
     end
     
+  def remove_entry(name, phone_number, email)
+      entries.delete_if{|entry| entry.name == name }
+  end  
+    
     # #7 define import_from_csv method. Result of 'parse' is a CSV table obj
     def import_from_csv(file_name)
         #implementation goes here
@@ -62,8 +66,16 @@ def add_entry(name, phone_number, email)
         
         # #5 **if no match is found, return 'nil'
         return nil
-
     end #end binary_search method
+
+    def iterative_search(name)
+    for i in 0...entries.length
+      if entries[i].name == name
+        return entries[i]
+      end #end 'if'
+    end #end 'for' loop
+        return nil
+    end #end iterative_search
     
 end# ***************end address_book file************
 
