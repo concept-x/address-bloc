@@ -58,6 +58,16 @@ RSpec.describe AddressBook do
             expect(book_size).to eq 5 #****why isn't this in parentheses like the others?*******
         end #end "imports correct # of entries"
     end #end #import from csv    
+    
+    context "#delete_all" do
+        it "should delete all entries"
+        book.add_entry("Ada Lovelace", "010.012.1815", "augusta.king@lovelace.com")
+        book.add_entry("Ada Lovelace", "010.012.1815", "augusta.king@lovelace.com")
+        book.add_entry("Ada Lovelace", "010.012.1815", "augusta.king@lovelace.com")
+        
+        book.delete_all
+        expect(book.entries.size).to eq 0
+    end
 
     # #4 access 1st entry in AddressBook array
     it "imports the 1st entry" do
