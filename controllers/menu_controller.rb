@@ -15,7 +15,8 @@ class MenuController
         puts "2 - Create an entry"
         puts "3 - Search for an entry"
         puts "4 - Import entries from a CSV"
-        puts "5 - Exit"
+        puts "5 - Destroy all entries"
+        puts "6 - Exit"
         print "Enter your selection: "
         
         # #3 grab user input with 'gets'
@@ -40,6 +41,10 @@ class MenuController
                 read_csv
                 main_menu
             when 5
+                system "clear"
+                delete_all
+                main_menu
+            when 6
                 puts "Good-bye!"
             # #8 terminate program w/o error (0)
                 exit(0)
@@ -186,6 +191,26 @@ class MenuController
      puts "#{entry.name} has been deleted"
    end #end delete_entry
     
+   def delete_all
+       puts "Are you sure you want to delete ALL entries? Y/N" 
+       #actual delete_all process
+       address_book.entries.each do |entry|
+            delete_entry
+            puts "All entries have been deleted"
+            end #end 'do' loop
+       end #end delete_all process
+       
+       case selection
+           when "Y" || "y"
+                delete_all 
+           when "N" || "n"
+                main_menu
+           else 
+                print "That is not a valid input. Please try again"
+       end
+       
+   end #end delete_all entries
+    
    def edit_entry(entry)
      # #4 gather user input & updates values
      print "Updated name: "
@@ -205,4 +230,4 @@ class MenuController
    end
  
  
-end # end class
+end# end class
