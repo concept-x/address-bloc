@@ -44,7 +44,6 @@ class MenuController
                 system "clear"
                 @address_book.destroy_all
                 puts "All entries destroyed"
-
                 main_menu
             when 6
                 puts "Good-bye!"
