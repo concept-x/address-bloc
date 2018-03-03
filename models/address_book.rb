@@ -8,6 +8,10 @@ class AddressBook
     def initialize
         @entries = []
     end
+    
+    def destroy_all
+        @entries = []
+    end
 
 
 def add_entry(name, phone_number, email)
@@ -27,7 +31,7 @@ def add_entry(name, phone_number, email)
   def remove_entry(name, phone_number, email)
       entries.delete_if{|entry| entry.name == name }
   end  
-    
+  
     # #7 define import_from_csv method. Result of 'parse' is a CSV table obj
     def import_from_csv(file_name)
         #implementation goes here

@@ -42,7 +42,12 @@ class MenuController
                 main_menu
             when 5
                 system "clear"
+<<<<<<< HEAD
                 delete_all
+=======
+                @address_book.destroy_all
+                puts "All entries destroyed"
+>>>>>>> assignment-checkpoint-8
                 main_menu
             when 6
                 puts "Good-bye!"
