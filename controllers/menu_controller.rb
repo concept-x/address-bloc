@@ -194,12 +194,16 @@ class MenuController
    def delete_all
        puts "Are you sure you want to delete ALL entries? Y/N" 
        #actual delete_all process
-       address_book.entries.each do |entry|
-            delete_entry
-            puts "All entries have been deleted"
-            end #end 'do' loop
-       end #end delete_all process
-       
+      
+       puts "All entries have been deleted"
+   #tried below first; about 7 errors
+       #address_book.entries.each do |entry|
+         #   delete_entry
+           # puts "All entries have been deleted"
+           # end #end 'do' loop
+ #      end #end delete_all process
+    ## tried replacing it with this; about 4 errors.
+       # address_book.entries.delete
        case selection
            when "Y" || "y"
                 delete_all 
@@ -207,7 +211,7 @@ class MenuController
                 main_menu
            else 
                 print "That is not a valid input. Please try again"
-       end
+       end#end delete_all process
        
    end #end delete_all entries
     
